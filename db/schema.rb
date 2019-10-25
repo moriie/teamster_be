@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_031943) do
+ActiveRecord::Schema.define(version: 2019_10_25_040401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blocks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "blocked_user"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "goals", force: :cascade do |t|
     t.string "partner_type"
@@ -27,6 +34,13 @@ ActiveRecord::Schema.define(version: 2019_10_17_031943) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["partner_type", "partner_id"], name: "index_goals_on_partner_type_and_partner_id"
+  end
+
+  create_table "ignores", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "ignored_user"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "networks", force: :cascade do |t|
