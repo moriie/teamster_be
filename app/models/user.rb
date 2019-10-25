@@ -6,6 +6,7 @@ class User < ApplicationRecord
     has_many :partner_goals, class_name: 'Goal', as: :partner
     has_one :network
     has_many :network_goals, through: :network, source: :partner, source_type: 'Goal'
+    has_many :ignores
 
     validates :age, numericality: { only_integer: true, message: 'must be an number.' }
     validates :age, numericality: { greater_than: 17, message: 'must be 18 or older to use this application.' }
