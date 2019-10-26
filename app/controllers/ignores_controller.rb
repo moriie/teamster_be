@@ -1,4 +1,10 @@
 class IgnoresController < ApplicationController
+
+    def list
+        # byebug
+        @ignores = Ignore.where(user_id: params[:id])
+        render json: { ignores: @ignores }
+    end
     
     def create
         @ignore = Ignore.create(i_params)      

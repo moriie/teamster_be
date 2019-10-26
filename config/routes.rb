@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'ignores/:id/destroy_all', to: 'ignores#destroy_all'
+  get 'ignores/:id/list', to: 'ignores#list'
+  
+  get 'goals/list/:id', to: 'goals#list'
 
   get 'session', to: 'sessions#auth_check'
   get 'session_end', to: 'sessions#destroy'

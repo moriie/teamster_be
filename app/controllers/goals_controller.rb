@@ -1,9 +1,7 @@
 class GoalsController < ApplicationController
 
-    skip_before_action :authorized, only: [:index]
-
-    def index
-        render json: Goal.all 
+    def list
+        render json: Goal.where(user_id: params[:id])
     end
 
     def create
