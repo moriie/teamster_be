@@ -14,5 +14,5 @@ class User < ApplicationRecord
     validates :bio, length: { maximum: 180 }
     validates :location, format: { with: /[0-9]{5}/, message: 'must be standard 5 digit US zip code' }
     validates :first_name, format: { with: /[A-Z][a-z]+/, message: 'can only include letters'}
-    validates :last_name, format: { with: /[a-zA-Z]+/, message: 'can only include letters'}
+    validates :last_name, format: { with: /[a-z][A-Z]+/, message: 'can only include letters'}
 end
